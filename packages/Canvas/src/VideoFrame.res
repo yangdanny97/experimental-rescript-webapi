@@ -1,5 +1,3 @@
-type sharedArrayBuffer = unknown
-
 /**
 `fromHTMLImageElement(~image: HTMLImageElement.t, ~init: videoFrameInit=?)`
 
@@ -138,23 +136,20 @@ external fromArrayBuffer: (
 ) => WebApiDOM.Types.videoFrame = "VideoFrame"
 
 /**
-`fromSharedArrayBuffer(~data: sharedArrayBuffer, ~init: videoFrameBufferInit)`
+`fromTypedArray(~data: TypedArray.t<'t>, ~init: videoFrameBufferInit)`
 
-Creates a new `VideoFrame` from `SharedArrayBuffer`-backed pixel data.
+Creates a new `VideoFrame` from typed-array-backed pixel data.
 
 ```res
 let frame =
-  VideoFrame.fromSharedArrayBuffer(
-    ~data=mySharedArrayBuffer,
-    ~init=myVideoFrameBufferInit,
-  )
+  VideoFrame.fromTypedArray(~data=myTypedArray, ~init=myVideoFrameBufferInit)
 ```
 
 [Read more on MDN](https://developer.mozilla.org/docs/Web/API/VideoFrame)
 */
 @new
-external fromSharedArrayBuffer: (
-  ~data: sharedArrayBuffer,
+external fromTypedArray: (
+  ~data: TypedArray.t<'t>,
   ~init: WebApiDOM.Types.videoFrameBufferInit,
 ) => WebApiDOM.Types.videoFrame = "VideoFrame"
 

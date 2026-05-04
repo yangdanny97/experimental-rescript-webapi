@@ -6,7 +6,7 @@ let imageBitmap: WebApiCanvas.Types.imageBitmap = Obj.magic()
 let offscreenCanvas: WebApiCanvas.Types.offscreenCanvas = Obj.magic()
 let videoFrame: WebApiDOM.Types.videoFrame = Obj.magic()
 let arrayBuffer: ArrayBuffer.t = Obj.magic()
-let sharedArrayBuffer = Obj.magic()
+let typedArray: TypedArray.t<int> = Obj.magic()
 let dataView: DataView.t = Obj.magic()
 let videoFrameInit: WebApiDOM.Types.videoFrameInit = Obj.magic()
 let videoFrameBufferInit: WebApiDOM.Types.videoFrameBufferInit = Obj.magic()
@@ -51,8 +51,8 @@ let _fromArrayBuffer = WebApiCanvas.VideoFrame.fromArrayBuffer(
   ~init=videoFrameBufferInit,
 )
 
-let _fromSharedArrayBuffer = WebApiCanvas.VideoFrame.fromSharedArrayBuffer(
-  ~data=sharedArrayBuffer,
+let _fromTypedArray = WebApiCanvas.VideoFrame.fromTypedArray(
+  ~data=typedArray,
   ~init=videoFrameBufferInit,
 )
 
