@@ -5,7 +5,7 @@ let _make: WebApiFile.ReadableStream.t<string> = WebApiFile.ReadableStream.make(
 
 let _fromUnderlyingSource = WebApiFile.ReadableStream.fromUnderlyingSource(underlyingSource)
 
-let _fromUnderlyingSourceWithStrategy = WebApiFile.ReadableStream.fromUnderlyingSourceWithStrategy(
-  ~underlyingSource,
+let _fromUnderlyingSourceWithStrategy = WebApiFile.ReadableStream.fromUnderlyingSource(
+  underlyingSource,
   ~strategy,
 )

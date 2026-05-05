@@ -18,38 +18,23 @@ let stream: ReadableStream.t<string> = ReadableStream.make()
 external make: unit => t<'t> = "ReadableStream"
 
 /**
-`fromUnderlyingSource(underlyingSource<'t>)`
+`fromUnderlyingSource(underlyingSource<'t>, ~strategy: queuingStrategy<'t>=?)`
 
-Creates a new `ReadableStream` from an `underlyingSource`.
+Creates a new `ReadableStream` from an `underlyingSource`, with an optional queuing strategy.
 
 ```res
 let stream = ReadableStream.fromUnderlyingSource(myUnderlyingSource)
+
+let streamWithStrategy =
+  ReadableStream.fromUnderlyingSource(myUnderlyingSource, ~strategy=myQueuingStrategy)
 ```
 
 [Read more on MDN](https://developer.mozilla.org/docs/Web/API/ReadableStream)
 */
 @new
-external fromUnderlyingSource: Types.underlyingSource<'t> => t<'t> = "ReadableStream"
-
-/**
-`fromUnderlyingSourceWithStrategy(~underlyingSource: underlyingSource<'t>, ~strategy: queuingStrategy<'t>)`
-
-Creates a new `ReadableStream` from an `underlyingSource` and `queuingStrategy`.
-
-```res
-let stream =
-  ReadableStream.fromUnderlyingSourceWithStrategy(
-    ~underlyingSource=myUnderlyingSource,
-    ~strategy=myQueuingStrategy,
-  )
-```
-
-[Read more on MDN](https://developer.mozilla.org/docs/Web/API/ReadableStream)
-*/
-@new
-external fromUnderlyingSourceWithStrategy: (
-  ~underlyingSource: Types.underlyingSource<'t>,
-  ~strategy: Types.queuingStrategy<'t>,
+external fromUnderlyingSource: (
+  Types.underlyingSource<'t>,
+  ~strategy: Types.queuingStrategy<'t>=?,
 ) => t<'t> = "ReadableStream"
 
 /**

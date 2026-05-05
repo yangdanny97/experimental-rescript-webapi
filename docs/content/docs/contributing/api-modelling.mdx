@@ -63,7 +63,7 @@ When naming an overloaded function, we can use the `With` suffix to indicate tha
 Constructors follow a different naming rule than methods.
 
 - Keep singleton constructors named `make`.
-- Keep true default constructors named `make`, even when the constructor family also has typed overloads.
+- Keep true no-argument default constructors named `make`, even when the constructor family also has typed overloads.
 - When a constructor family does not have a default constructor, use `from*` names for every overload, including the first one.
 - Base `from*` names on the source input type: `fromString`, `fromArrayBuffer`, `fromMediaStream`, `fromURLWithProtocols`, and so on.
 - If an optional labeled argument hides a real default constructor, split that binding into `make()` plus typed `from*` overloads instead of keeping the optional argument on `make`.
