@@ -4,22 +4,38 @@
 type t<'r> = Types.readableStream<'r>
 
 /**
+`make()`
+
+Creates a new empty `ReadableStream`.
+
+```res
+let stream: ReadableStream.t<string> = ReadableStream.make()
+```
+
 [Read more on MDN](https://developer.mozilla.org/docs/Web/API/ReadableStream)
 */
 @new
-external make: unit => t<array<int>> = "ReadableStream"
+external make: unit => t<'t> = "ReadableStream"
 
 /**
-[Read more on MDN](https://developer.mozilla.org/docs/Web/API/ReadableStream)
-*/
-@new
-external make2: unit => unknown = "ReadableStream"
+`fromUnderlyingSource(underlyingSource<'t>, ~strategy: queuingStrategy<'t>=?)`
 
-/**
+Creates a new `ReadableStream` from an `underlyingSource`, with an optional queuing strategy.
+
+```res
+let stream = ReadableStream.fromUnderlyingSource(myUnderlyingSource)
+
+let streamWithStrategy =
+  ReadableStream.fromUnderlyingSource(myUnderlyingSource, ~strategy=myQueuingStrategy)
+```
+
 [Read more on MDN](https://developer.mozilla.org/docs/Web/API/ReadableStream)
 */
 @new
-external make3: unit => unknown = "ReadableStream"
+external fromUnderlyingSource: (
+  Types.underlyingSource<'t>,
+  ~strategy: Types.queuingStrategy<'t>=?,
+) => t<'t> = "ReadableStream"
 
 /**
 [Read more on MDN](https://developer.mozilla.org/docs/Web/API/ReadableStream/cancel)
